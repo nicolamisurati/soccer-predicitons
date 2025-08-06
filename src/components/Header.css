@@ -1,0 +1,38 @@
+/* src/components/Header.css */
+
+.header {
+    background-color: #4189c4; /* Blue background */
+    color: white; /* White text */
+    width: 85%; /* Full width */
+    padding: 10px 20px; /* Padding */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between title and nav */
+    align-items: center; /* Center items vertically */
+}
+
+.header-title {
+    margin: 0; /* Remove default margin */
+    font-size: 24px; /* Font size for the title */
+    font-weight: bold; /* Bold title */
+    text-align: center; /* Center text */
+}
+
+.header-nav ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Flexbox for horizontal layout */
+}
+
+.header-nav li {
+    margin-left: 20px; /* Space between links */
+}
+
+.header-nav a {
+    color: white; /* White text for links */
+    text-decoration: none; /* Remove underline */
+}
+
+.header-nav a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
