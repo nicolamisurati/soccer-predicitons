@@ -11,6 +11,7 @@ const App = () => {
     const [users, setUsers] = useState([]);
     const [showLeaderboard, setShowLeaderboard] = useState(false);
     const [predictions, setPredictions] = useState({}); // State to store predictions by match ID
+    const [username, setUsername] = useState(''); // State to store username
     const [message, setMessage] = useState(''); // State to store feedback message
 
     useEffect(() => {
@@ -46,40 +47,46 @@ const App = () => {
         }));
     };
 
+
     // Function to send predictions to the database
-const handleSendPredictions = async () => {
-    const userId = 'user1'; // Hardcoded user ID for simplicity
-    const predictionEntries = Object.entries(predictions).map(([matchId, team]) => ({
-        userId,
-        matchId,
-        team,
-    }));
+    const handleSendPredictions = async () => {
+        const predictionEntries = Object.entries(predictions).map(([matchId, team]) => ({
+            userId: username.trim(), // Use the entered username
+            matchId,
+            team,
+        }));
 
-    // Validation: Check if all matches have predictions
-    if (Object.keys(predictions).length !== matches.length) {
-        setMessage('Please select predictions for all matches.'); // Prompt error if not all matches are selected
-        return;
-    }
-
-    try {
-        const response = await fetch('http://localhost:3000/api/predictions', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(predictionEntries),
-        });
-
-        if (response.ok) {
-            setMessage('Predictions saved successfully!');
-        } else {
-            setMessage('Failed to save predictions.');
+        // Validation: Check if username is provided and all matches have predictions
+        if (!username.trim()) {
+            setMessage('Please enter your username.'); // Prompt error if username is empty
+            return;
         }
-    } catch (error) {
-        console.error('Error:', error);
-        setMessage('Error saving predictions.');
-    }
-};
+
+        if (Object.keys(predictions).length !== matches.length) {
+            setMessage('Please select predictions for all matches.'); // Prompt error if not all matches are selected
+            return;
+        }
+
+        try {
+            console.log('Sending predictions:', predictionEntries);
+            const response = await fetch('http://localhost:3000/api/predictions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(predictionEntries),
+            });
+
+            if (response.ok) {
+                setMessage('Predictions saved successfully!');
+            } else {
+                setMessage('Failed to save predictions.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setMessage('Error saving predictions.');
+        }
+    };
 
 
     return (
@@ -99,8 +106,15 @@ const handleSendPredictions = async () => {
                                     <span className={predictions[match.id] ? 'selected-team' : ''}>
                                         {predictions[match.id] ? predictions[match.id] : '(no selections yet)'}
                                     </span>
-                                </p>    
+                                </p>
                             ))}
+                            <input 
+                                type="text" 
+                                placeholder="Enter your username" 
+                                value={username} 
+                                onChange={(e) => setUsername(e.target.value)} 
+                            />
+                            <div style={{ margin: '10px 0' }} /> {/* Spacer div */}
                             <button onClick={handleSendPredictions}>Submit Predictions</button>
                             {message && <p className="feedback-message">{message}</p>} {/* Display feedback message */}
                         </div>
