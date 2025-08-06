@@ -58,7 +58,7 @@
 
 /* Feedback Message */
 .feedback-message {
-    color: #af1111; /* Red color for error messages */
+    color: #4189c4; /* Blue color for error messages */
     font-weight: bold; /* Bold text for emphasis */
 }
 
