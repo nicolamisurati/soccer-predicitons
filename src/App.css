@@ -7,7 +7,7 @@
     align-items: center; /* Center items horizontally */
     justify-content: flex-start; /* Align items to the top */
     min-height: 100vh; /* Full height of the viewport */
-    background-color: #f0f0f0; /* Light background color for the entire app */
+    background-color: #f0f0f1; /* Light background color for the entire app */
 }
 
 /* Content Container */
@@ -58,7 +58,7 @@
 
 /* Feedback Message */
 .feedback-message {
-    color: #d32f2f; /* Red color for error messages */
+    color: #af1111; /* Red color for error messages */
     font-weight: bold; /* Bold text for emphasis */
 }
 
