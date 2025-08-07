@@ -12,7 +12,7 @@
 
 .header-title {
     margin: 0; /* Remove default margin */
-    font-size: 25px; /* Font size for the title */
+    font-size: 30px; /* Font size for the title */
     font-weight: bold; /* Bold title */
     text-align: center; /* Center text */
 }
