@@ -6,7 +6,8 @@ import './Header.css'; // Optional: for styling
 const Header = ({ onToggle }) => {
     return (
         <header className="header">
-            <h1 className="header-title">TX-841 Soccer Match Predictor</h1>
+            <img src="bmw_logo.png" alt="Logo" className="header-logo" /> {/* Add your logo here */}
+            <h1 className="header-title">TX-841 Match Predictor</h1>
             <nav className="header-nav">
                 <ul>
                     <li>

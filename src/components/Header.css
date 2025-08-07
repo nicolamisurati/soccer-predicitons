@@ -10,6 +10,12 @@
     align-items: center; /* Center items vertically */
 }
 
+.header-logo {
+    width: 50px; /* Set the width of the logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between logo and title */
+}
+
 .header-title {
     margin: 0; /* Remove default margin */
     font-size: 30px; /* Font size for the title */

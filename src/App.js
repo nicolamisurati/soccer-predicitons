@@ -17,20 +17,23 @@ const App = () => {
     useEffect(() => {
         // Mock data for matches
         const fetchMatches = async () => {
-            const mockData = [
-                { id: 1, team1: 'Team A', team2: 'Team B', match_date: '2023-10-01T15:00:00Z' },
-                { id: 2, team1: 'Team C', team2: 'Team D', match_date: '2023-10-02T17:00:00Z' },
-                { id: 3, team1: 'Team E', team2: 'Team F', match_date: '2023-10-03T19:00:00Z' },
-            ];
+        const mockData = [
+            { id: 1, team1: { name: 'Green Bay Packers', logo: 'teamA.png' }, team2: { name: 'Philadelphia Eagles', logo: 'teamB.png' }, match_date: '2025-10-01T15:00:00Z', winningTeam: 'Team A' },
+            { id: 2, team1: { name: 'Atlanta Falcons', logo: 'teamC.png' }, team2: { name: 'Cleveland Browns', logo: 'teamD.png' }, match_date: '2025-10-02T17:00:00Z', winningTeam: 'Team D' },
+            { id: 3, team1: { name: 'Carolina Panthers', logo: 'teamE.png' }, team2: { name: 'Jacksonville Jaguars', logo: 'teamF.png' }, match_date: '2025-10-03T19:00:00Z', winningTeam: 'Team E' },
+            { id: 4, team1: { name: 'Jacksonville Jaguars', logo: 'teamF.png' }, team2: { name: 'Los Angeles Chargers', logo: 'teamG.png' }, match_date: '2025-10-02T17:00:00Z', winningTeam: 'Team G' },
+            { id: 5, team1: { name: 'Cincinnati Bengals', logo: 'teamH.png' }, team2: { name: 'Kansas City Chiefs', logo: 'teamI.png' }, match_date: '2025-10-03T19:00:00Z', winningTeam: 'Team ' },
+        ];
+
             setMatches(mockData);
         };
 
         // Mock data for users
         const fetchUsers = async () => {
             const mockUsers = [
-                { id: 1, username: 'User1', points: 10 },
-                { id: 2, username: 'User2', points: 20 },
-                { id: 3, username: 'User3', points: 15 },
+                { id: 1, username: 'User1', points: 20 },
+                { id: 2, username: 'User2', points: 15 },
+                { id: 3, username: 'User3', points: 10 },
             ];
             setUsers(mockUsers);
         };

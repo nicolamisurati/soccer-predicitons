@@ -14,6 +14,7 @@
 .match-item {
     display: flex; /* Flexbox for layout */
     justify-content: space-between; /* Space between teams and date */
+    align-items: center; /* Center items vertically */
     padding: 15px; /* Increased padding for each match item */
     border-bottom: 1px solid #ddd; /* Divider between matches */
 }
@@ -28,10 +29,11 @@
     cursor: pointer; /* Pointer cursor on hover */
 }
 
-.team-logo {
-    width: 50px; /* Increased logo width */
-    height: 50px; /* Increased logo height */
-    margin-right: 10px; /* Space between logo and team name */
+.team-logo { 
+    width: 60px; /* Increased logo width */
+    height: 60px; /* Increased logo height */
+    margin-right: 15px; /* Space between logo and team name */
+    object-fit: contain;
 }
 
 /* Styles for selected team */
